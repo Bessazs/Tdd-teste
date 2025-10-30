@@ -7,8 +7,8 @@ test('Começo com operador', ()=>{
 test('fim com operador', ()=>{
     expect(ehExpressaoValida('1+2-')).toBe(false);
 });
-test('Com operador corrrecleato',()=>{
-    expect(ehExpressaoValida('1+2')).toBe(true);
+test("Operação  geral",()=>{
+    expect(ehExpressaoValida('1 + 2 * ( 9 / 3 - 1 * 6 )')).toBe(true);
 });
 
 // testes para operadores consecutivos
@@ -48,5 +48,13 @@ test('Após número, operador é válido', () => {
     expect(ehExpressaoValida('1+2')).toBe(true);
 });
 test('Após número, parêntese de fechamento é válido', () => {
-    expect(ehExpressaoValida('1)')).toBe(false);
+    expect(ehExpressaoValida('(1)')).toBe(true);
 });
+
+test("Após número, ser diferente de número ou '('", () =>{
+    expect(ehExpressaoValida('(1+)2')).toBe(false);
+})
+
+test ("Operação com espaço", () =>{
+    expect(ehExpressaoValida('1 + 2')).toBe(true);
+})

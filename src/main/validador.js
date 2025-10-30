@@ -1,6 +1,6 @@
 function ehExpressaoValida(expressao) {
   const operadores = ["+", "-", "*", "/"];
-
+  expressao = expressao.replace(/\s/g, "");
   // função que verifica se o caractere é um operador
   const isOperador = (char) => operadores.includes(char);
 
@@ -23,9 +23,11 @@ function ehExpressaoValida(expressao) {
   for (let i = 0; i < expressao.length - 1; i++) {
     const charAtual = expressao[i];
     const charProximo = expressao[i + 1];
-
     if (isOperador(charAtual)) {
-      if (isOperador(charProximo)) {
+      if (isOperador(charProximo )) {
+        return false;
+      }
+      if(charProximo == ")"){
         return false;
       }
     }
@@ -37,9 +39,6 @@ function ehExpressaoValida(expressao) {
         return false;
       }
     }
-
-
-
   }
 
   // verifica parênteses balanceados
