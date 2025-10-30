@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "jest ../src/test/validador.test.js"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
