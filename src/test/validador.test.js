@@ -37,3 +37,16 @@ test("Parênteses não balanceados - mais fechados", () => {
     expect(ehExpressaoValida('(1+2)) * (3-4)')).toBe(false);
 });
 
+// Testes para ver  numero, só pode vir operador ou ')'
+test('Após número, parêntese de abertura é inválido', () => {
+    expect(ehExpressaoValida('1(2+3)')).toBe(false);
+});
+test('Após número, outro número é inválido', () => {
+    expect(ehExpressaoValida('12')).toBe(false); 
+});
+test('Após número, operador é válido', () => {
+    expect(ehExpressaoValida('1+2')).toBe(true);
+});
+test('Após número, parêntese de fechamento é válido', () => {
+    expect(ehExpressaoValida('1)')).toBe(false);
+});

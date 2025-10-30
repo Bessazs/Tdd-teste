@@ -14,6 +14,10 @@ function ehExpressaoValida(expressao) {
   if (isOperador(ultimoCaractere)) {
     return false;
   }
+  // Permite terminar com numero ou parentese de fechamento
+  if (!(ultimoCaractere >= "0" && ultimoCaractere <= "9") && ultimoCaractere !== ")") {
+    return false;
+  }
 
   // verifica operadores consecutivos
   for (let i = 0; i < expressao.length - 1; i++) {
@@ -25,6 +29,17 @@ function ehExpressaoValida(expressao) {
         return false;
       }
     }
+    // Apos um numero, só pode vir operador ou ')'
+    if (charAtual >= "0" && charAtual <= "9") {
+      if (
+        !(isOperador(charProximo) || charProximo === ")")
+      ) {
+        return false;
+      }
+    }
+
+
+
   }
 
   // verifica parênteses balanceados
